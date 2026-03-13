@@ -122,3 +122,7 @@ section#about {
     font-size: 18px;
     font-family: "Playfair Display", serif;
 }
+
+.tippy-box {
+  font-family: 'monospace';
+}
