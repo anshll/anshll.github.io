@@ -1,45 +1,79 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="./favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		
-		<link rel="modulepreload" href="./_app/immutable/entry/start.D1OYSIZO.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/BSVriFT0.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/CYBn4Xig.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/CjH3qmg9.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.DAcEr4NY.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/C1by3jka.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/CZuiiqSN.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.B6y8dzdz.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/2.zyr_ZvEl.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/BCKveWla.js">
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents"><!--[--><!--[--><!----><!----><h1>Welcome to SvelteKit</h1> <p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p><!----><!----><!----><!--]--> <!--[!--><!--]--><!--]-->
-			
-			<script>
-				{
-					__sveltekit_1yl77kk = {
-						base: new URL(".", location).pathname.slice(0, -1)
-					};
+<head>
+    <meta charset="UTF-8">
+    <title>anshul's website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+24&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
-					const element = document.currentScript.parentElement;
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Nabla&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
 
-					Promise.all([
-						import("./_app/immutable/entry/start.D1OYSIZO.js"),
-						import("./_app/immutable/entry/app.DAcEr4NY.js")
-					]).then(([kit, app]) => {
-						kit.start(app, element, {
-							node_ids: [0, 2],
-							data: [null,null],
-							form: null,
-							error: null
-						});
-					});
-				}
-			</script>
-		</div>
-	</body>
+<div id="content">
+<h1>anshul shah</h1>
+
+<section id="about">
+    <p>
+        I'm a 3rd year at the University of Washington studying Computer Science.
+        I'm interested in a broad range of topics, like signal processing, machine learning, and synthetic biology.
+        <br><br>
+        This last summer I was at Amazon helping automate resource onboarding with LLMs for <a href="https://aws.amazon.com/config/">
+        AWS Config</a>,
+        and spent <a>2 weeks at sea</a> on the oceanographic research vessel <a href="https://en.wikipedia.org/wiki/RV_Atlantis_(AGOR-25)">
+        <i>R.V Atlantis</i></a>.
+        <br><br>
+        Last year I worked at the <a href="https://sensor.cs.washington.edu/">Sensor Systems Lab
+        </a> on a NASA grant project where I helped
+        improve the accuracy of our ray-traced wireless propagation simulation on lunar surfaces. (translation:
+        spent too much time reading Apollo-era geology papers to model lunar soil just right).
+        <br><br>
+        The summer before that, I worked at the <a href="https://www.dartmouth-hitchcock.org/pathology/clinical-genomics-advanced-technologies">
+        Dartmouth Clinical Genomics and Advanced Technologies lab</a> where I designed and trained an NLP model to detect phenotypes from clinical notes.
+        <br><br>
+        I'm also passionate about helping lead <a href="https://next.dubhacks.co">
+        UW's student-run startup incubator</a>.
+    </p>
+</section>
+
+<section id="contact">
+    <a class="button" href="https://www.linkedin.com/in/anshul-shah1/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+    <div id="email">
+        <div id="icon"><i class="fa-regular fa-envelope"></i></div>
+        <span>anshul7@uw.edu</span>
+        <a class="button" id="copy" onclick="copy()"><i class="fa-regular fa-copy"></i></a>
+    </div>
+    <a class="button" href="https://github.com/anshll" target="_blank"><i class="fa-brands fa-github"></i></a>
+
+</section>
+</div>
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script src="https://kit.fontawesome.com/c89678c7c7.js" crossorigin="anonymous"></script>
+
+<script>
+    function copy() {
+        const email = document.querySelector('#email span');
+        const text = email.innerText || email.textContent;
+
+        navigator.clipboard.writeText(text).then(() => {
+        }).catch(err => {
+            console.error('Could not copy text: ', err);
+        });
+    }
+
+    tippy('#copy', {
+        content: 'copied!',
+        trigger: 'click',
+        onShow(instance) {
+            setTimeout(() => {
+                instance.hide();
+            }, 2000);
+        }
+    });
+</script>
+
+
+</body>
 </html>
